@@ -1,1 +1,4 @@
-<image src="images/like.png" class="container"></image>
+<view>
+  <image src="images/like.png" class="container"></image>
+  <text>9</text>
+</view>
