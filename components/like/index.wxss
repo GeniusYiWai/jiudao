@@ -3,6 +3,7 @@
   display: inline-flex;
   flex-direction: row;
   padding-top: 10rpx;
+  width: 90rpx;
 
 }
 
