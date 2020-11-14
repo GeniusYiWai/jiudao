@@ -10,19 +10,15 @@ Page({
 
   data: {
     classic: null,
-    latestIndex: null,
-    firstIndex: 1,
-    curretnIndex: null,
     isLatest: true,
     isFirst: false
   },
   async onLoad() {
-    let data = await classicModel.getLatest();
+    let res = await classicModel.getLatest();
     this.setData({
-      classic: data,
-      latestIndex: data.index,
-      curretnIndex: data.index
+      classic: res,
     })
+    wx.setStorageSync('latestIndex', res.index)
 
   },
   onLike(event) {
@@ -30,61 +26,35 @@ Page({
     let behavior = event.detail.behavior;
     likeModel.like(behavior, this.data.classic.id, this.data.classic.type);
   },
-  onNext() {
-    if (this.data.curretnIndex == this.data.firstIndex) {
-      return
-    }
-    this.setData({
-      curretnIndex: this.data.curretnIndex - 1,
-      isLatest: false
-    })
-    if (this.data.curretnIndex == this.data.firstIndex) {
-      this.setData({
-        isFirst: true
-      })
+  async onNext() {
 
-    }
-
-  },
-  onPrev() {
-    if (this.data.curretnIndex == this.data.latestIndex) {
-      return
-    }
+    let index = this.data.classic.index;
+    let res = await classicModel.getNext(index);
     this.setData({
-      curretnIndex: this.data.curretnIndex + 1,
+      classic: res,
+      isLatest: this.isLatest(index + 1),
       isFirst: false
     })
 
-    if (this.data.curretnIndex == this.data.latestIndex) {
-      this.setData({
-        isLatest: true
-      })
 
-    }
+  },
+  async onPrev() {
+    let index = this.data.classic.index;
+    let res = await classicModel.getPrev(index);
+    this.setData({
+      classic: res,
+      isFirst: this.isFirst(index - 1),
+      isLatest: false
+    })
+
+  },
+  isFirst(index) {
+    return index == 1 ? true : false;
+  },
+  isLatest(index) {
+    return index == wx.getStorageSync('latestIndex') ? true : false
   }
 
 
 
 })
-
-
-// let promise = new Promise((resolve, reject) => {
-//   wx.request({
-//     url: 'http://www.frontendgo.com:8886/v1/classic/latest',
-//     method: 'GET',
-//     header: {
-//       appkey: 'admin'
-//     },
-//     success(res) {
-//       resolve(res.data)
-
-//     },
-//     fail(error) {
-//       reject(error)
-//     }
-//   })
-
-// })
-
-// let res = await promise;
-// console.log(res);

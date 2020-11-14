@@ -3,8 +3,18 @@ import {
 } from '../utils/http.js'
 class ClassicModel extends HTTP {
   getLatest() {
-   return this.request({
+    return this.request({
       url: 'classic/latest',
+    })
+  }
+  getPrev(index) {
+    return this.request({
+      url: 'classic/' + 'previous/' + index
+    })
+  }
+  getNext(index) {
+    return this.request({
+      url: 'classic/' + 'next/' + index
     })
   }
 }
