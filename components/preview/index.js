@@ -1,6 +1,7 @@
 Component({
 
   properties: {
+    //预览的期刊信息
     classic: {
       type: Object,
 
@@ -11,10 +12,12 @@ Component({
    * 组件的初始数据
    */
   data: {
+    // 期刊的标签
     typeText: ""
   },
 
   attached() {
+    //设置期刊标签
     this.setType()
   },
   /**

@@ -1,18 +1,24 @@
 <view class="container">
   <view class="header">
+  <!-- 期刊索引组件 -->
     <v-episode index="{{classic.index}}" class="episode" />
     <view class="like-container">
+    <!-- 点赞组件 -->
       <v-like class="like" bind:like="onLike" like="{{likeStatus}}" count="{{likeCount}}" />
+      <!-- 分享组件 -->
       <v-button class="share-btn" open-type="share">
         <image class="share" slot="img" src="/images/icon/share.png" />
       </v-button>
     </view>
   </view>
+  <!-- 电影组件 -->
   <v-movie hidden="{{classic.type!=100}}" img="{{classic.image}}" content="{{classic.content}}" />
+  <!-- 音乐组件 这里使用wx:if 来控制音乐组件的显示和隐藏-->
   <v-music wx:if="{{classic.type==200}}" img="{{classic.image}}" content="{{classic.content}}" src="{{classic.url}}"
     title="{{classic.title}}" />
+    <!-- 句子组件 -->
   <v-essay hidden="{{classic.type!=300}}" img="{{classic.image}}" content="{{classic.content}}" />
-
+<!-- 切换期刊组件 -->
   <v-navi class="navi" title="{{classic.title}}" latest="{{isLatest}}" first="{{isFirst}}" bind:right="onPrev"
     bind:left="onNext" />
 </view>

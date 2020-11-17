@@ -12,10 +12,7 @@ Component({
     //点赞状态
     like: {
       type: Boolean,
-      // value: false,
-      // observer:()=>{
 
-      // }
     },
     //点赞数量
     count: {

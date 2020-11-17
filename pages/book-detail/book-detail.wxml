@@ -1,5 +1,4 @@
 <view class="container">
-
   <view class="head">
     <image src="{{book.image}}"></image>
     <text class='title'>{{book.title}}</text>
@@ -37,7 +36,6 @@
         <text class="">{{book.price}}</text>
         <text class="">{{book.binding}}</text>
       </view>
-
     </view>
   </view>
 </view>
@@ -47,12 +45,9 @@
   </view>
   <view class="like-container">
     <v-like bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
-
   </view>
 </view>
-
 <v-mask wx:if="{{posting}}" />
-
 <view wx:if="{{posting}}" class="posting-container">
   <view class="post-header">
     <text wx:if="{{!(comments==false)}}">仅可点击标签+1</text>
@@ -60,21 +55,20 @@
     <text class="cancel" bind:tap="onCancel">取消</text>
   </view>
   <view class="comment-container">
-
     <v-tag bind:tapping="onPost" class="tag" text="{{item.content}}" wx:for="{{util.limit(comments,3)}}" wx:key="">
       <text class="num" slot="after">{{'+' + item.nums}}</text>
     </v-tag>
-
   </view>
   <input focus="{{posting}}" confirm-type="发送" class="post" placeholder='短评最多12个字' bindconfirm="onPost"></input>
   <!-- <image class="tip" src="/images/book/tip.png"></image> -->
 </view>
-
-
+<!-- wxs -->
 <wxs module="util">
+//数组截取
   var limit = function (array, length) {
     return array.slice(0, length)
   }
+//评论格式化
   var format = function (text) {
     if (!text) {
       return

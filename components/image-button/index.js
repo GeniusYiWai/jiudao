@@ -4,6 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    //button按钮的opentype值
     openType: {
       type: String
     }
@@ -22,6 +23,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    //抛出点击事件
     onGetUserInfo(event) {
       this.triggerEvent('getuserinfo', event.detail)
     }
