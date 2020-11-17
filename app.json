@@ -1,15 +1,45 @@
 {
   "pages": [
-    "pages/classic/index"
-
+    "pages/classic/index",
+    "components/classic/movie/index",
+    "components/episode/index",
+    "components/navi/index",
+    "pages/book/book",
+    "pages/book-detail/book-detail",
+    "pages/my/my",
+    "components/book/index"
+  
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "孤岛",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "requiredBackgroundModes": ["audio", "location"]
+  "tabBar": {
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "color": "#c7c7c7",
+    "list": [
+      {
+        "text": "流行",
+        "pagePath": "pages/classic/index",
+        "iconPath": "/images/classic.png",
+        "selectedIconPath": "/images/classic@highlight.png"
+      },
+      {
+        "text": "书籍",
+        "pagePath": "pages/book/book",
+        "iconPath": "/images/book.png",
+        "selectedIconPath": "/images/book@highlight.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/my/my",
+        "iconPath": "/images/my.png",
+        "selectedIconPath": "/images/my@highlight.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
 }

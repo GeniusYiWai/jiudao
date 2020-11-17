@@ -48,23 +48,36 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
+    "plugin": {
       "list": []
     },
     "game": {
-      "list": []
-    },
-    "plugin": {
       "list": []
     },
     "gamePlugin": {
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/book/book",
+          "pathName": "pages/book/book",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/book-detail/book-detail",
+          "pathName": "pages/book-detail/book-detail",
+          "query": "bid=6021440&isbn=9787115249494",
+          "scene": null
+        },
+        {
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }

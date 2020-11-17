@@ -4,18 +4,12 @@ import {
 
 class HTTP {
 
-  constructor() {
-
-  }
-  request(params) {
+  request({url, data = {}, method = 'GET'}) {
     return new Promise((resovle, reject) => {
-      if (!params.method) {
-        params.method = 'GET'
-      }
       wx.request({
-        url: config.api_base_url + params.url,
-        method: params.method,
-        data: params.data,
+        url: config.api_base_url + url,
+        method,
+        data,
         header: {
           appkey: config.appkey
         },
@@ -25,12 +19,13 @@ class HTTP {
             resovle(res.data.msg);
             let message = res.data.error_message;
             if (message != '成功') {
+              reject();
               this._show_error(res.data.error_message)
             }
           }
         },
         fail(error) {
-          reject(error)
+          reject();
           this._show_error('错误');
         }
       })
