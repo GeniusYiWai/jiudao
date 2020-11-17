@@ -17,6 +17,12 @@ class ClassicModel extends HTTP {
       url: 'classic/' + 'next/' + index
     })
   }
+  getMyLike() {
+    return this.request({
+      url: 'classic/favor'
+    })
+
+  }
 }
 export {
   ClassicModel

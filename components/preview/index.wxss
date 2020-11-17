@@ -1,0 +1,42 @@
+.preview-container {
+  background-color: #fff;
+
+  width: 330rpx;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 80rpx;
+
+}
+
+
+
+.like {
+  margin-top: 4rpx;
+  margin-right: 4rpx;
+}
+
+.image {
+  width: 240rpx;
+  height: 240rpx;
+  border-radius: 50%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.text {
+  padding: 30rpx;
+  font-size: 28rpx;
+  height: 130rpx;
+  color: #666666;
+  overflow: hidden;
+}

@@ -1,0 +1,12 @@
+<view class="preview-container">
+  <view class="header">
+    <v-tag class="tag" text="{{typeText}}" />
+    <v-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" readOnly="{{true}}"/>
+  </view>
+  <view class="content">
+    <image src="{{classic.image}}" class="image"></image>
+
+    <text class="text">{{classic.content}}</text>
+  </view>
+
+</view>

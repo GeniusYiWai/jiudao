@@ -1,3 +1,7 @@
+const {
+  BookModel
+} = require("../../models/book");
+
 // components/like/index.js
 Component({
   /**
@@ -16,6 +20,9 @@ Component({
     //点赞数量
     count: {
       type: Number
+    },
+    readOnly: {
+      type: Boolean
     }
   },
 
@@ -35,6 +42,9 @@ Component({
   methods: {
     //点赞事件处理
     onLike(event) {
+      if (this.properties.readOnly) {
+        return
+      }
       let like = this.properties.like;
       let count = this.properties.count;
       count = like ? count - 1 : count + 1;
